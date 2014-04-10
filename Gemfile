@@ -15,6 +15,10 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 # used jquery-rails v from first-app Gemfile
 gem 'jquery-rails', '3.0.4'
+# added jquery-rails, turbolinks & jbuilder from first-app Gemfile
+gem 'jquery-rails', '3.0.4'
+gem 'turbolinks', '1.1.1'
+gem 'jbuilder', '1.0.2'
 
 group :development, :test do
  # used sqlite3 v from first-app Gemfile

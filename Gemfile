@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# Major pain to make this run on HeRoKu...
+
 # ruby version stays at 1.9.3 vs. no version declaration 
 # in "Advanced Configuration" Gemfile
 ruby '1.9.3'

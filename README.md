@@ -1,3 +1,3 @@
 # Ruby on Rails Tutorial:  Sample Application
 
-This is the sample application for the [Ruby on Rails Tutorial](http://railstutorial.org/) by [Michael Hartl](http://michaelhartl.com/) as followed by Florian Schuster.
+This is the sample application for the [Ruby on Rails Tutorial](http://railstutorial.org/) by [Michael Hartl](http://michaelhartl.com/) as followed by fgschuster.

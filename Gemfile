@@ -28,21 +28,31 @@ gem 'bootstrap-will_paginate', '0.0.6'
 group :development, :test do
  # used sqlite3 v from first-app Gemfile
   gem 'sqlite3', '1.3.8'
-  gem 'rspec-rails', '2.11.0'
-  gem 'guard-rspec', '1.2.1'
-  gem 'guard-spork', '1.2.0'
+  gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
+  gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'spork', '0.9.2'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'selenium-webdriver', '2.39.0'
+  gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.1.0'
   gem 'cucumber-rails', '1.2.1', :require => false
   gem 'database_cleaner', '0.7.0'
   # gem 'launchy', '2.1.0'
   # gem 'rb-fsevent', '0.9.1', :require => false
   # gem 'growl', '1.0.3'
+
+  # Uncomment these lines for Windows:
+  gem 'rb-notifu', '0.0.4'
+  gem 'win32console', '1.3.2'
+  gem 'wdm', '0.1.0'
+end
+
+group :doc do
+  gem 'sdoc', '0.3.20', require: false
 end
 
 # production remains also unchanged from the first_app Gemfile

@@ -4,10 +4,12 @@ source 'https://rubygems.org'
 # ruby version stays at 1.9.3 vs. no version declaration 
 # in "Advanced Configuration" Gemfile
 ruby '1.9.3'
-#runy-gemset=railstutorial_rails_4_0
+#ruby-gemset=railstutorial_rails_4_0
 
 # leaving the rails version unchanged from the first_app Gemfile
 gem 'rails', '4.0.4'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 
 # used lines 11 to 16 gems from first-app Gemfile
 gem 'sass-rails', '4.0.1'
@@ -19,7 +21,7 @@ gem 'jbuilder', '1.0.2'
 
 # adding the "Advanced Configuration" Gemfile 
 # from https://raw.github.com/railstutorial/sample_app_2nd_ed/master/Gemfile
-gem 'bootstrap-sass', '2.1'
+# gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'

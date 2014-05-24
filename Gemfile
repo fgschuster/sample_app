@@ -10,7 +10,7 @@ ruby '1.9.3'
 gem 'rails', '4.0.4'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
-gem 'bcrypt-ruby', '3.1.2'
+gem 'bcrypt', '~>3.1.0'
 
 # used lines 11 to 16 gems from first-app Gemfile
 gem 'sass-rails', '4.0.1'
@@ -42,7 +42,7 @@ end
 group :test do
   gem 'selenium-webdriver', '2.39.0'
   gem 'capybara', '2.1.0'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.2.1', :require => false
   gem 'database_cleaner', '0.7.0'
   # gem 'launchy', '2.1.0'

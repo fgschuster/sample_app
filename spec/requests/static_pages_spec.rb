@@ -18,7 +18,7 @@ describe "Static pages" do
     click_link "sample app"
     expect(page).to have_title(full_title(''))
     click_link "Sign in"
-    expect(page).to have_title(full_title('Sign up'))
+    expect(page).to have_title(full_title('Sign in'))
   end
 
 	subject { page }

@@ -19,14 +19,17 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 # adding the "Advanced Configuration" Gemfile 
 # from https://raw.github.com/railstutorial/sample_app_2nd_ed/master/Gemfile
 # gem 'bootstrap-sass', '2.1'
 # gem 'bcrypt-ruby', '3.0.1'
-gem 'faker', '1.0.1'
-gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
+# gem 'faker', '1.0.1'
+# gem 'will_paginate', '3.0.3'
+# gem 'bootstrap-will_paginate', '0.0.6'
 
 group :development, :test do
  # used sqlite3 v from first-app Gemfile

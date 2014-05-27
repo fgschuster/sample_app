@@ -75,6 +75,17 @@ describe "UserPages" do
       specify { expect(user.reload.email).to eq new_email }
     end
 
+    describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password,
+                  password_confirmation: user.password } }
+      end
+      before do
+        sign_in user, no_capybara: true
+        patch user_path(user), params
+      end
+      specify { expect(user.reload).not_to be_admin }
+    end
   end
 
   describe "signup page" do
@@ -121,17 +132,39 @@ describe "UserPages" do
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
         before do
-          sign_in admin
+          click_link "Sign out"  # Argh - changed the sign-in behavior,
+          #                        but the test env didn't run an updated suite
+          visit signin_path
+          valid_signin admin
           visit users_path
         end
 
         it { should have_link('delete', href: user_path(User.first)) }
+
         it "should be able to delete another user" do
           expect do
             click_link('delete', match: :first)
           end.to change(User, :count).by(-1)
         end
+
         it { should_not have_link('delete', href: user_path(admin)) }
+
+        # "My" solution
+
+        it "should not be able to delete itself" do
+          expect do
+            delete user_path(admin)
+          end.not_to change(User, :count).by(-1)
+        end
+
+        # Solution from http://stackoverflow.com/questions/14794181/railstutorial-org-chapter-9-exercises-9
+
+        # describe "should not be able to delete himself by submitting a DELETE request to the Users#destroy action" do
+        #   specify do
+        #     expect { delete user_path(admin) }.not_to change(User, :count).by(-1)
+        #   end
+        # end
+
       end
     end
   end

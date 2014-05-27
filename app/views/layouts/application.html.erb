@@ -18,7 +18,22 @@
             <% end %>
 	        <%= yield %>
             <%= render 'layouts/footer' %>
-            <%= debug(params) if Rails.env.development? %>
+            <% if Rails.env.development? %>
+              <%= debug(params) %>
+              <div class="request_test">
+                <%= headers.each do |key, value| %>
+                    <li>
+                    <%= content_tag(:div, key.to_s + " " + value.to_s) %>
+                    </li>
+                <% end %>
+                <div>
+                    <%= "Current URL: " + request.original_url %>
+                </div>
+                <div>
+                  <%= "Get request: " + request.get?.to_s %>
+                </div>
+              </div>
+            <% end %>
         </div>
 	</body>
 </html>

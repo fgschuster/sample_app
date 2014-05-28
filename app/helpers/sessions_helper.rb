@@ -32,6 +32,14 @@ module SessionsHelper
     user == current_user
   end
 
+  def signed_in_user
+    unless signed_in?
+      store_location
+      # using a shortcut for flash[:notice]; doesn't work for error or success :-(
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)

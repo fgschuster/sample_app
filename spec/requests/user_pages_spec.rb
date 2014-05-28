@@ -109,6 +109,21 @@ describe "UserPages" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
+
+      describe "micropost pagination" do
+        before do
+          30.times { FactoryGirl.create(:micropost, user: user) }
+          visit user_path(user)
+        end
+        after(:all)   { User.delete_all }
+
+        it "should list each micropost" do
+          Micropost.paginate(page: 1).each do |micropost|
+            expect(page).to have_selector('li', text: micropost.content)
+          end
+        end
+      end
+
     end
   end
 

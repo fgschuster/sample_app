@@ -52,6 +52,54 @@ describe "Static pages" do
           expect(page).to have_selector("li##{item.id}", text: item.content)
         end
       end
+
+      describe "micropost pagination" do
+        before do
+          30.times { FactoryGirl.create(:micropost, user: user) }
+          visit root_path
+        end
+        after(:all)   { User.delete_all }
+
+        it "should list each micropost" do
+          Micropost.paginate(page: 1).each do |micropost|
+            expect(page).to have_selector('li', text: micropost.content)
+          end
+        end
+      end
+
+    end
+
+    describe "sidebar - for sigend-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "sidebar - no microposts" do
+        before do
+          sign_in user
+          visit root_path
+        end
+        it { should have_content("0 microposts") }
+      end
+
+      describe "sidebar - 1 micropost" do
+        before do
+          FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+          sign_in user
+          visit root_path
+        end
+        it { should have_content("1 micropost") }
+      end
+
+      describe "sidebar - multiple microposts" do
+        before do
+          FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+          FactoryGirl.create(:micropost, user: user, content: "Dolor sin amet")
+          sign_in user
+          visit root_path
+        end
+        it { should have_content("2 microposts") }
+      end
+
+
     end
  	end
 

@@ -1,6 +1,4 @@
-<!--RoR Tutorial Ch.10, Ex.7-->
-
-//<script type="text/javascript">
+//<!--RoR Tutorial Ch.10, Ex.7-->
 function LimitCharacters(txtMsg, CharLength, indicator) {
     chars = txtMsg.value.length;
     if (chars >= CharLength) {
@@ -11,4 +9,3 @@ function LimitCharacters(txtMsg, CharLength, indicator) {
     document.getElementById(indicator).innerHTML = CharLength - chars;
     }
 }
-//</script>

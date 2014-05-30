@@ -20,7 +20,9 @@ SampleApp::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  # Changed to true in order to allow .jpg files to be pushed to Heroku
+  # cf. http://stackoverflow.com/questions/15354539/heroku-does-not-compile-files-under-assets-pipelines-in-rails-4
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

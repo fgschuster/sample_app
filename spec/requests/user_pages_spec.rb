@@ -97,8 +97,27 @@ describe "UserPages" do
 
   describe "profile page" do
     let(:user)  { FactoryGirl.create(:user) }
+    let(:non_signedin_user) { FactoryGirl.create(:user) }
     let!(:m1)   { FactoryGirl.create(:micropost, user: user, content: "Foo " * 10) }
     let!(:m2)   { FactoryGirl.create(:micropost, user: user, content: "Bar " * 10) }
+    let!(:m1_non_signedin)   { FactoryGirl.create(:micropost, user: non_signedin_user, content: "Foo " * 10) }
+    let!(:m2_non_signedin)   { FactoryGirl.create(:micropost, user: non_signedin_user, content: "Bar " * 10) }
+
+    before { sign_in user }
+
+    describe "microposts page of non-sigend-in user" do
+      before { visit user_path(non_signedin_user) }
+
+      it { should have_content(non_signedin_user.name) }
+      it { should have_title(non_signedin_user.name) }
+
+      describe "microposts (non-signed-in user)" do
+        it { should have_content(m1_non_signedin.content) }
+        it { should have_content(m2_non_signedin.content) }
+        it { should have_content(non_signedin_user.microposts.count) }
+        it { should_not have_link("delete", href: micropost_path(m1_non_signedin)) }
+      end
+    end
 
     before { visit user_path(user) }
 
@@ -109,6 +128,8 @@ describe "UserPages" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
+      # Don't understand why this doesn't work... ...helps to sign in first :-)
+      it { should have_link("delete", href: micropost_path(m1)) }
 
       describe "micropost pagination" do
         before do
@@ -123,6 +144,7 @@ describe "UserPages" do
           end
         end
       end
+
 
     end
   end

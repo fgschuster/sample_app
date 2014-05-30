@@ -2,10 +2,10 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
       <!--RoR Tutorial Ch.10, Ex.7-->
-      <span class="countdown">Number of Characters left: <em id="count">140</em></span>
       <%= f.text_area :content, placeholder: "Compose new micropost...",
                       onkeyup: "LimitCharacters(this,140,'count');",
                       onkeydown: "LimitCharacters(this,140,'count');" %>
+      <span class="countdown">Number of Characters left: <em id="count">140</em></span>
     </div>
     <%= f.submit "Post", class: "btn btn-large, btn-primary" %>
 <% end %>

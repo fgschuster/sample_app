@@ -1,3 +1,4 @@
+
 <div class="center hero-unit">
   <h1>Welcome to the Sample App</h1>
   <h2>
@@ -6,4 +7,23 @@
   </h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
-<%= link_to image_tag("4_Seasons_sm.png", alt: "4 Seasons"), 'http://www.karlskirche.at/' %>
+
+<div id="myCarousel" class="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!--Carousel items-->
+  <div class="carousel-inner">
+    <div class="active item"><%= link_to image_tag("4_Seasons.png", alt: "Vienna - St. Charles Church"), 'http://www.karlskirche.at/', target: '_blank'%></div>
+    <div class="item"><%= link_to image_tag("20140525_Botanischer_Garten _0.png", alt: "Vienna - Bamboo Grove in the Botanical Gardens"), 'http://www.botanik.univie.ac.at/hbv/index.php?nav=&lang=en', target: '_blank'%></div>
+    <div class="item"><%= link_to image_tag("20140525_Botanischer_Garten_2.png", alt: "Vienna - Belvedere from the Botanical Gardens"), 'http://www.belvedere.at/en', target: '_blank'%></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+
+<!--<%#= link_to image_tag("4_Seasons_sm.png", alt: "4 Seasons"), 'http://www.karlskirche.at/' %>-->

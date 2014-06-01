@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
 
   def feed
     # This is preliminary.  See "Following users" for the full implementation
-    Micropost.where("user_id = ?", id)  # ? prevents SQL injection
+    # Micropost.where("user_id = ?", id)  # ? prevents SQL injection
+    # Updated to show own and followed users' microposts
+    Micropost.from_users_followed_by(self)
   end
 
   def following?(other_user)

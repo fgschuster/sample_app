@@ -23,6 +23,9 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+# Use postgresql as the database for Active Record
+gem 'pg', '0.17.1'
+
 # adding the "Advanced Configuration" Gemfile 
 # from https://raw.github.com/railstutorial/sample_app_2nd_ed/master/Gemfile
 # gem 'bootstrap-sass', '2.1'
@@ -33,7 +36,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
  # used sqlite3 v from first-app Gemfile
-  gem 'sqlite3', '1.3.8'
+  #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
@@ -64,6 +67,5 @@ end
 
 # production remains also unchanged from the first_app Gemfile
 group :production do
-	gem 'pg', '0.15.1'
 	gem 'rails_12factor', '0.0.2'
 end

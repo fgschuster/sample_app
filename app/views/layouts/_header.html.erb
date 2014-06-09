@@ -1,4 +1,6 @@
-<div class="container">
+<div class="container-fluid">
+
+  <!--Works in a normal browser but not on my iphone browsers!?-->
 
   <!-- Fixed navbar -->
   <div class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
@@ -13,7 +15,7 @@
         <a <%= link_to "sample app", root_path, id: "logo" %></a>
       </div>
       <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav pull-right">
+        <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home",       root_path %></li>
           <li><%= link_to "Help",       help_path %></li>
           <% if signed_in? %>

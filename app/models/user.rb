@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   before_save { email.downcase! }
   #before_save { self.email = email.downcase }
-  before_create :create_remember_token
+  before_create { create_token(:remember_token) }
 
   has_secure_password
 
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
 
-  def User.new_remember_token
+  def User.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -48,7 +48,9 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = User.hash(User.new_remember_token)
+    def create_token(column)
+      begin
+        self[column] = User.hash(User.new_token)
+      end while User.exists?(column => self[column])
     end
 end

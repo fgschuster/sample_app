@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-	    <title><%= full_title(yield(:title)) %></title>
-
-        <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <%# Solution to all our problems:  %>
-        <%# http://stackoverflow.com/questions/12520456/execjsruntimeerror-on-windows-trying-to-follow-rubytutorial %>
 
 
+      <title><%= full_title(yield(:title)) %></title>
 
 
-        <%= csrf_meta_tags %>
-        <%= render 'layouts/shim' %>
+      <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%# Solution to all our problems:  %>
+      <%# http://stackoverflow.com/questions/12520456/execjsruntimeerror-on-windows-trying-to-follow-rubytutorial %>
+
+      <!--The two items below should be included automatically -->
+      <!--- copied bootstrap.min.css into the stylesheets folder-->
+
+      <!-- Bootstrap core CSS -->
+      <!--<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+      <!-- Custom styles for the navbar template -->
+      <!--<link href="navbar.css" rel="stylesheet">-->
+
+
+      <%= csrf_meta_tags %>
+      <%= render 'layouts/shim' %>
     </head>
 	<body>
         <%= render 'layouts/header' %>
-        <div class="container">
+        <div class="container-fluid">
             <% flash.each do |key, value| %>
               <%= content_tag(:div, value, class: "alert alert-#{key}") %>
             <% end %>
@@ -26,5 +36,12 @@
               <%= debug(params) %>
             <% end %>
         </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+        <!--included in javascripts - the script below should not be necessary, else modify path-->
+        <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
 	</body>
 </html>
